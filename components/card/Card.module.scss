@@ -1,0 +1,45 @@
+.card{
+  max-width: 500px;
+  background-color: #82ceff;
+  border-radius: 5px;
+  padding: 25px;
+  //border: 1px solid black;
+}
+.listItem{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  background-color: #82ceff;
+  border-radius: 5px;
+}
+.listItem:nth-child(1){
+  background-color: aqua;
+}
+
+.listItem:nth-child(2){
+  background-color: khaki;
+}
+.listItem:nth-child(3){
+  background-color: darkslategrey;
+}
+.listItem:nth-child(4) {
+  background-color: gray;
+}
+.question{
+  margin: 10px;
+  padding-bottom: 10px;
+  border-bottom: 5px dashed #009bff;
+  color: white;
+}
+.letterOption{
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  background-color: #009bff;
+  border-radius: 5px;
+  margin-right: 20px;
+}

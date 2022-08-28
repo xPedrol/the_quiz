@@ -1,0 +1,35 @@
+@use "../../styles/Fonts.module" as *;
+
+.header {
+  //margin: 10px;
+  display: flex;
+  height: 8vh;
+  min-height: 50px;
+  //background-color: #82ceff;
+  background-color: #009bff;
+  //border-radius: 20px;
+  align-items: center;
+  padding-inline: 20px;
+}
+.logoGrid{
+  display: flex;
+  align-items: center;
+}
+.starImg {
+  width: 20px;
+  margin-right: 15px;
+}
+
+.headerTitle {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: 2px;
+  color: white;
+  background-color: #82ceff;
+  padding-inline: 10px;
+  border-radius: 5px;
+  @extend .vcr;
+}
