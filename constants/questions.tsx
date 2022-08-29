@@ -1,6 +1,6 @@
 import {TQuestion} from "../models/Question";
 
-const questions: TQuestion[] = [
+const constQuestions: TQuestion[] = [
     {
         id: 0,
         description:'What is the scientific name of a butterfly?',
@@ -140,3 +140,5 @@ const questions: TQuestion[] = [
         correctAnswerId: 2,
     }
 ];
+
+export default constQuestions;

@@ -1,6 +1,65 @@
-.main{
+@use "Fonts.module" as *;
+@use "Breakpoints.module" as *;
+
+.main {
   height: 92vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  overflow: hidden;
+  justify-content: space-between;
+}
+
+.arrowGrid {
+  padding: 10px;
+  cursor: pointer;
+  transition: 200ms;
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  animation: arrowMovement 2s infinite;
+}
+
+.arrowGrid:hover {
+  animation: unset;
+}
+
+.arrowGridRight:hover {
+  transform: translateX(25%);
+}
+
+.arrowGridLeft:hover {
+  transform: translateX(-25%);
+}
+
+.arrowIcon {
+  color: #009bff;
+  font-size: 50px;
+}
+
+.emptyGrid {
+  opacity: 0;
+  cursor: initial !important;
+}
+.hiddenCard{
+  display: none;
+}
+@keyframes arrowMovement {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(10%);
+  }
+  0% {
+    transform: translateX(0%);
+  }
+}
+
+@include max-width($md) {
+  .main {
+    justify-content: center;
+  }
+  .arrowGrid {
+    display: none;
+  }
 }

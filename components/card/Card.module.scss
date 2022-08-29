@@ -1,38 +1,76 @@
-.card{
+@use "../../styles/Fonts.module" as *;
+
+.card {
+  width: 100%;
   max-width: 500px;
-  background-color: #82ceff;
+  background-color: white;
   border-radius: 5px;
-  padding: 25px;
+  border: 0.0625rem solid #e4e9f2;
   //border: 1px solid black;
 }
-.listItem{
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  margin: 10px;
-  background-color: #82ceff;
-  border-radius: 5px;
+.blocked{
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
 }
-.listItem:nth-child(1){
-  background-color: aqua;
+.blocked:hover{
+  transform: unset !important;
 }
 
-.listItem:nth-child(2){
-  background-color: khaki;
+.cardHeader {
+  width: 100%;
+  padding: 15px 25px 15px 25px;
+  background-color: #f7f9fc;
 }
-.listItem:nth-child(3){
-  background-color: darkslategrey;
+
+.list {
+  margin: 25px;
 }
-.listItem:nth-child(4) {
-  background-color: gray;
+
+.listItem {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin: 10px 0 10px 0;
+  //background-color: #009bff;
+  background-color: #82ceff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 100ms;
+  animation-name: checkItem;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+
 }
-.question{
-  margin: 10px;
-  padding-bottom: 10px;
-  border-bottom: 5px dashed #009bff;
-  color: white;
+
+.successListItem {
+  background-color: #00d68f;
 }
-.letterOption{
+
+.dangerListItem {
+  background-color: #ff3d71;
+}
+
+.correctListItem {
+  background-color: #8cfac7;
+}
+.standardListItem:hover {
+  background-color: #48b7ff;
+  transform: translateX(2.5%);
+  //scale: 1.1;
+}
+
+.question {
+  text-align: start;
+  @extend .robotoMono;
+  font-size: 18px;
+}
+
+.listItemText {
+  //font-size: 13px;
+  @extend .robotoMono;
+}
+
+.letterOption {
   width: 35px;
   height: 35px;
   display: flex;
@@ -42,4 +80,35 @@
   background-color: #009bff;
   border-radius: 5px;
   margin-right: 20px;
+  font-weight: 700;
+  @extend .silkscreen;
+}
+
+.cardFooter {
+  width: 100%;
+  padding: 10px 25px 10px 25px;
+  background-color: #f7f9fc;
+}
+
+.scoreboard {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+}
+
+.scoreGrid {
+  text-align: center;
+}
+
+.score {
+  text-align: center;
+  @extend .silkscreen;
+}
+
+.scoreText {
+  @extend .robotoMono;
+  font-size: 12px;
 }
