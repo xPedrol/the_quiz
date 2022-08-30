@@ -5,19 +5,22 @@ import {convertMsToHM} from "../../services/msConvert";
 import questions from "../../constants/questions";
 
 type Props = {
+    hidden?:boolean;
     question: TQuestion;
+    markAsAnswered: (answerId: number) => void;
 }
-const Card = ({question}: Props) => {
+const Card = ({question, markAsAnswered,hidden}: Props) => {
     const [timeLeft, setTimeLeft] = useState<number>(5000);
     const [selected, setSelected] = useState<number>(-1);
-    useEffect(()=>{
-        if(question){
+    useEffect(() => {
+        if (question) {
             reset();
         }
-    },[question])
+    }, [question]);
     useEffect(() => {
         const list = document.querySelectorAll(`.${styles.listItem}`);
         if (selected >= 0) {
+            markAsAnswered(question.id);
             if (selected <= 3) {
                 if (selected === question.correctAnswerId) {
                     list.item(selected).classList.add(`${styles.successListItem}`);
@@ -64,10 +67,10 @@ const Card = ({question}: Props) => {
             }
         }
     }, [timeLeft]);
-    const reset = ()=>{
+    const reset = () => {
         setSelected(-1);
         setTimeLeft(10000);
-    }
+    };
     const handleQuestionLetter = (questionId: number) => {
         if (questionId === 0) return 'A';
         if (questionId === 1) return 'B';
@@ -81,7 +84,7 @@ const Card = ({question}: Props) => {
         }
     };
     return (
-        <div className={styles.card}>
+        <div className={`${styles.card} ${hidden?styles.hidden:''}`}>
             <div className={styles.cardHeader}>
                 <h4 className={styles.question}>{question.description}</h4>
             </div>

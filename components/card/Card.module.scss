@@ -1,5 +1,9 @@
 @use "../../styles/Fonts.module" as *;
 
+.hidden {
+  display: none !important;
+}
+
 .card {
   width: 100%;
   max-width: 500px;
@@ -8,11 +12,13 @@
   border: 0.0625rem solid #e4e9f2;
   //border: 1px solid black;
 }
-.blocked{
+
+.blocked {
   opacity: 0.6 !important;
   cursor: not-allowed !important;
 }
-.blocked:hover{
+
+.blocked:hover {
   transform: unset !important;
 }
 
@@ -53,6 +59,7 @@
 .correctListItem {
   background-color: #8cfac7;
 }
+
 .standardListItem:hover {
   background-color: #48b7ff;
   transform: translateX(2.5%);
