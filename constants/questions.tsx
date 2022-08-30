@@ -1,6 +1,8 @@
 import {TQuestion} from "../models/Question";
 
+
 const constQuestions: TQuestion[] = [
+    // @ts-ignore
     {
         id: 0,
         description:'What is the scientific name of a butterfly?',
@@ -24,6 +26,7 @@ const constQuestions: TQuestion[] = [
         ],
         correctAnswerId: 0,
     },
+    // @ts-ignore
     {
         id: 1,
         description:'How hot is the surface of the sun?',
@@ -47,6 +50,7 @@ const constQuestions: TQuestion[] = [
         ],
         correctAnswerId: 1,
     },
+    // @ts-ignore
     {
         id: 2,
         description:'Who are the actors in The Internship?',
@@ -70,6 +74,7 @@ const constQuestions: TQuestion[] = [
         ],
         correctAnswerId: 3,
     },
+    // @ts-ignore
     {
         id: 3,
         description:'What is the capital of Spain?',
@@ -93,6 +98,7 @@ const constQuestions: TQuestion[] = [
         ],
         correctAnswerId: 2,
     },
+    // @ts-ignore
     {
         id: 4,
         description:'What are the school colors of the University of Texas at Austin?',
@@ -116,6 +122,7 @@ const constQuestions: TQuestion[] = [
         ],
         correctAnswerId: 2,
     },
+    // @ts-ignore
     {
         id: 5,
         description:'What is 70 degrees Fahrenheit in Celsius?',

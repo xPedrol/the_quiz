@@ -1,4 +1,4 @@
-import {TAnswer} from "./Answer";
+import {Answer, TAnswer} from "./Answer";
 
 export type TQuestion = {
     id: number;
@@ -6,13 +6,13 @@ export type TQuestion = {
     answers: TAnswer[];
     correctAnswerId: number;
     answered?: boolean;
-    markAsAnswered():void;
+    markAsAnswered(): void;
 }
 
 export class Question implements TQuestion {
     description: string;
     id: number;
-    answers: TAnswer[];
+    answers: Answer[];
     correctAnswerId: number;
     answered: boolean;
 
@@ -24,7 +24,7 @@ export class Question implements TQuestion {
         this.answered = false;
     }
 
-    markAsAnswered():void {
+    markAsAnswered(): void {
         this.answered = true;
     }
 }
