@@ -78,11 +78,15 @@ const Home: NextPage = () => {
                             <IoIosArrowForward className={styles.arrowIcon}/>
                         </div>
                     }
-                    <button className={styles.nextButton}>
-                        <IoIosArrowForward className={styles.nextButtonIcon}/>
-                        <span className={styles.nextButtonText}>Next</span>
-                        <IoIosArrowBack className={styles.nextButtonIcon}/>
-                    </button>
+                    {
+                        canGoAhead() &&
+                        <button className={styles.nextButton}>
+                            {/*<IoIosArrowForward className={styles.nextButtonIcon}/>*/}
+                            <span className={styles.nextButtonText}>Next</span>
+                            {/*<IoIosArrowBack className={styles.nextButtonIcon}/>*/}
+                        </button>
+                    }
+
                 </main>
             </Container>
         </>
