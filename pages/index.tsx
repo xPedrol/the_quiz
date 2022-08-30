@@ -79,8 +79,8 @@ const Home: NextPage = () => {
                         </div>
                     }
                     {
-                        canGoAhead() &&
-                        <button className={styles.nextButton}>
+                        canGoAhead() && findQuestionIndexByID(currentQuestionId) < questions.length - 1  &&
+                        <button className={styles.nextButton} onClick={() => changeCurrentQuestion(currentQuestionId + 1)}>
                             {/*<IoIosArrowForward className={styles.nextButtonIcon}/>*/}
                             <span className={styles.nextButtonText}>Next</span>
                             {/*<IoIosArrowBack className={styles.nextButtonIcon}/>*/}
