@@ -21,6 +21,7 @@ const Home: NextPage = () => {
         return questions.find(question => question.id === questionId);
     };
     const markAsAnswered = (answerId: number) => {
+        console.warn(answerId)
         const auxQuestions = questions.map(question => {
             if (question.id === answerId) {
                 question.markAsAnswered();
@@ -44,27 +45,27 @@ const Home: NextPage = () => {
             <Navbar/>
             <Container>
                 <main className={styles.main}>
-                    {/*{findQuestionIndexByID(currentQuestionId) > 0 ?*/}
-                    {/*    <div*/}
-                    {/*        className={`${canGoAhead() ? styles.enabledArrowGrid : styles.disabledArrowGrid} ${styles.arrowGridLeft}`}*/}
-                    {/*        onClick={() => canGoAhead() ? changeCurrentQuestion(currentQuestionId - 1) : null}>*/}
-                    {/*        <IoIosArrowBack className={styles.arrowIcon}/>*/}
-                    {/*    </div>*/}
-                    {/*    :*/}
-                    {/*    <div className={`${styles.arrowGrid} ${styles.emptyGrid}`}>*/}
-                    {/*        <IoIosArrowBack className={styles.arrowIcon}/>*/}
-                    {/*    </div>*/}
-                    {/*}*/}
-                    <div className={`${styles.arrowGrid} ${styles.emptyGrid}`}>
-                        <IoIosArrowBack className={styles.arrowIcon}/>
-                    </div>
+                    {findQuestionIndexByID(currentQuestionId) > 0 ?
+                        <div
+                            className={`${styles.enabledArrowGrid} ${styles.arrowGridLeft}`}
+                            onClick={() => changeCurrentQuestion(currentQuestionId - 1)}>
+                            <IoIosArrowBack className={styles.arrowIcon}/>
+                        </div>
+                        :
+                        <div className={`${styles.arrowGrid} ${styles.emptyGrid}`}>
+                            <IoIosArrowBack className={styles.arrowIcon}/>
+                        </div>
+                    }
+                    {/*<div className={`${styles.arrowGrid} ${styles.emptyGrid}`}>*/}
+                    {/*    <IoIosArrowBack className={styles.arrowIcon}/>*/}
+                    {/*</div>*/}
                     {currentQuestionId >= 0 && questions.map((question) =>
 
-                            currentQuestionId === question.id ?
-                                <Card key={question.id} question={questions[currentQuestionId]}
+                            // currentQuestionId === question.id ?
+                                <Card key={question.id} question={question} active={currentQuestionId === question.id}
                                       markAsAnswered={markAsAnswered}/>
-                                :
-                                null
+                                // :
+                                // null
 
                     )}
                     {findQuestionIndexByID(currentQuestionId) < questions.length - 1 ?
@@ -78,14 +79,23 @@ const Home: NextPage = () => {
                             <IoIosArrowForward className={styles.arrowIcon}/>
                         </div>
                     }
-                    {
-                        canGoAhead() && findQuestionIndexByID(currentQuestionId) < questions.length - 1  &&
-                        <button className={styles.nextButton} onClick={() => changeCurrentQuestion(currentQuestionId + 1)}>
-                            {/*<IoIosArrowForward className={styles.nextButtonIcon}/>*/}
-                            <span className={styles.nextButtonText}>Next</span>
-                            {/*<IoIosArrowBack className={styles.nextButtonIcon}/>*/}
-                        </button>
-                    }
+                    <div className={styles.mobileButtons}>
+                        {findQuestionIndexByID(currentQuestionId) > 0 &&
+                            <button className={styles.mobileButton} onClick={() => changeCurrentQuestion(currentQuestionId - 1)}>
+                                {/*<IoIosArrowForward className={styles.nextButtonIcon}/>*/}
+                                <span className={styles.nextButtonText}>Back</span>
+                                {/*<IoIosArrowBack className={styles.nextButtonIcon}/>*/}
+                            </button>
+                        }
+                        {
+                            canGoAhead() && findQuestionIndexByID(currentQuestionId) < questions.length - 1  &&
+                            <button className={styles.mobileButton} onClick={() => changeCurrentQuestion(currentQuestionId + 1)}>
+                                {/*<IoIosArrowForward className={styles.nextButtonIcon}/>*/}
+                                <span className={styles.nextButtonText}>Next</span>
+                                {/*<IoIosArrowBack className={styles.nextButtonIcon}/>*/}
+                            </button>
+                        }
+                    </div>
 
                 </main>
             </Container>

@@ -62,9 +62,8 @@
     transform: translateX(0%);
   }
 }
-.nextButton{
-  margin-top: 20px;
-  display: none;
+.mobileButton{
+  margin: 5px;
   background-color: #009bff;
   color: white;
   border: none;
@@ -73,12 +72,20 @@
   @extend .silkscreen;
   font-size: 22px;
   font-weight: 700;
+  display: flex;
+  align-items: center;
 }
 .nextButtonText{
   padding-inline: 5px;
 }
 .nextButtonIcon{
   font-size: 25px;
+}
+.mobileButtons{
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }
 @include max-width($md) {
   .main {
@@ -88,8 +95,7 @@
   .arrowGrid {
     display: none;
   }
-  .nextButton{
+  .mobileButtons{
     display: flex;
-    align-items: center;
   }
 }

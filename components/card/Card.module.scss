@@ -1,7 +1,7 @@
 @use "../../styles/Fonts.module" as *;
 
-.hidden {
-  display: none !important;
+.card.hidden {
+  display: none;
 }
 
 .card {
